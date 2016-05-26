@@ -19668,6 +19668,117 @@ process.umask = function() { return 0; };
 },{}],168:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var InputField = function InputField(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    'input field'
+  );
+};
+
+exports.default = InputField;
+
+},{"react":166}],169:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ListItem = function ListItem(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'h5',
+      null,
+      props.title
+    ),
+    _react2.default.createElement(
+      'p',
+      null,
+      props.text
+    )
+  );
+};
+
+exports.default = ListItem;
+
+},{"react":166}],170:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _listItem = require('./list-item.jsx');
+
+var _listItem2 = _interopRequireDefault(_listItem);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var List = function List(props) {
+  var list = void 0,
+      itemlist = void 0;
+
+  list = [{
+    'id': 1,
+    'title': 'result-1',
+    'text': 'this is the result 1'
+  }, {
+    'id': 2,
+    'title': 'result-2',
+    'text': 'this is the result 2'
+  }, {
+    'id': 3,
+    'title': 'result-3',
+    'text': 'this is the result 3'
+  }];
+  itemlist = list.map(function (item) {
+    return _react2.default.createElement(_listItem2.default, { key: item.id, title: item.title, text: item.text });
+  });
+
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'h3',
+      null,
+      'list'
+    ),
+    _react2.default.createElement(
+      'ul',
+      null,
+      itemlist
+    )
+  );
+};
+
+exports.default = List;
+
+},{"./list-item.jsx":169,"react":166}],171:[function(require,module,exports){
+'use strict';
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -19677,6 +19788,14 @@ var _react2 = _interopRequireDefault(_react);
 var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _inputField = require('./components/input-field.jsx');
+
+var _inputField2 = _interopRequireDefault(_inputField);
+
+var _list = require('./components/list.jsx');
+
+var _list2 = _interopRequireDefault(_list);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19699,9 +19818,15 @@ var Main = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'h1',
+        'div',
         null,
-        'Wiki Viewer'
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Wiki Viewer'
+        ),
+        _react2.default.createElement(_inputField2.default, null),
+        _react2.default.createElement(_list2.default, null)
       );
     }
   }]);
@@ -19714,4 +19839,4 @@ var Main = function (_React$Component) {
 _reactDom2.default.render(_react2.default.createElement(Main, null), document.getElementById('container'));
 // console.log('https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json');
 
-},{"react":166,"react-dom":1}]},{},[168]);
+},{"./components/input-field.jsx":168,"./components/list.jsx":170,"react":166,"react-dom":1}]},{},[171]);
