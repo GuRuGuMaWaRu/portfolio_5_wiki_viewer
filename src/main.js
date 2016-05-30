@@ -22,7 +22,8 @@ class Main extends React.Component {
           title: 'title-2',
           text: 'text-2'
         }
-      ]
+      ],
+      search: ''
     }
   }
 
@@ -44,11 +45,16 @@ class Main extends React.Component {
       });
   }
 
+  handleSearch(search) {
+    console.log(search);
+    this.setState({search: search});
+  }
+
   render() {
     return (
       <div className="container">
         <h1 className="my-main-header">wiki viewer</h1>
-        <InputField />
+        <InputField search={this.state.search} handleSearch={this.handleSearch} />
         <List results={this.state.results} />
       </div>
     );

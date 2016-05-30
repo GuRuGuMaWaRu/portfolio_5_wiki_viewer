@@ -1,10 +1,11 @@
-$black              : #000;
-$white              : #fff;
+$black           : #000;
+$white           : #fff;
 
-$header-color       : #0288D1;
-$button-color       : #03A9F4;
-$background-color   : $white;
-$input-border       : #FF5722;
+$header-color    : #84DCC6;
+$button-color    : #FF686B;
+$background-color: $white;
+$border-color    : #FF686B;
+$result-color    : #FFA69E;
 
 body {
   background: $background-color;
@@ -20,7 +21,7 @@ body {
 
 .jumbotron {
   background: $white;
-  border: 2px solid $black;
+  border: 2px solid $border-color;
 }
 
 .my-form {
@@ -33,7 +34,7 @@ body {
     text-align: center;
     font-size:1.4em;
     border: none;
-    border-bottom: 2px solid $black;
+    border-bottom: 2px solid $border-color;
     width: 60%;
     outline: none;
     box-shadow: none !important;
@@ -63,7 +64,7 @@ body {
 }
 
 .my-search-result {
-  background: #A5FFD6;
+  background: $result-color;
   padding: 10px;
   margin-bottom: 10px;
 }
