@@ -1,6 +1,69 @@
+$black              : #000;
+$white              : #fff;
+
+$header-color       : #0288D1;
+$button-color       : #03A9F4;
+$background-color   : $white;
+$input-border       : #FF5722;
+
+body {
+  background: $background-color;
+}
+
 .my-main-header {
+  color: $header-color;
   font-size: 6em;
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: -0.35em;
+  margin-bottom: -0.38em;
+}
+
+.jumbotron {
+  background: $white;
+  border: 2px solid $black;
+}
+
+.my-form {
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 3em;
+  &-input {
+    background: $white;
+    display: inline-block;
+    text-align: center;
+    font-size:1.4em;
+    border: none;
+    border-bottom: 2px solid $black;
+    width: 60%;
+    outline: none;
+    box-shadow: none !important;
+  }
+  &-button {
+    color: $button-color;
+    font-size: 1.3em;
+    border: none;
+    background: $white;
+  }
+}
+
+.my-number {
+  text-align: center;
+  &-button {
+    background: $button-color;
+    color: $white;
+    display: inline-block;
+    border: 1px solid $button-color;
+    border-radius: 50%;
+    margin: 20px 10px 0;
+    width: 50px;
+    height: 50px;
+    outline: 0 !important;
+    outline-style: none !important;
+  }
+}
+
+.my-search-result {
+  background: #A5FFD6;
+  padding: 10px;
+  margin-bottom: 10px;
 }

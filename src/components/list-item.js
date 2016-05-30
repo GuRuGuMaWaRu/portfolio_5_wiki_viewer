@@ -2,7 +2,7 @@ import React from 'react';
 
 const ListItem = (props) => {
   return (
-    <div>
+    <div className="my-search-result">
       <h5>{props.title}</h5>
       <p>{props.text}</p>
     </div>
