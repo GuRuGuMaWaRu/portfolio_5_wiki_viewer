@@ -20254,10 +20254,20 @@ var Main = function (_React$Component) {
   _createClass(Main, [{
     key: 'handleClick',
     value: function handleClick() {
-      fetch('https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json').then(function (response) {
-        return response.json();
-      }).then(function (data) {
-        return console.log(data);
+      //API request
+      var api_url = "https://en.wikipedia.org/w/api.php",
+          search_term = 'tokyo';
+
+      $.ajax({ url: api_url,
+        dataType: "jsonp",
+        jsonp: "callback",
+        data: { action: "opensearch",
+          search: search_term,
+          limit: 5,
+          format: "json" },
+        success: function success(response) {
+          console.log(response);
+        }
       });
     }
   }, {
@@ -20265,18 +20275,59 @@ var Main = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'container m-t-4' },
         _react2.default.createElement(
-          'h1',
-          null,
-          'Wiki Viewer'
-        ),
-        _react2.default.createElement(_inputField2.default, null),
-        _react2.default.createElement(_list2.default, null),
-        _react2.default.createElement(
-          'button',
-          { onClick: this.handleClick },
-          'Click Me!'
+          'div',
+          { className: 'panel panel-info' },
+          _react2.default.createElement(
+            'div',
+            { className: 'panel-heading' },
+            _react2.default.createElement(
+              'h1',
+              null,
+              'Wiki Viewer'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'panel-body' },
+            _react2.default.createElement(_inputField2.default, null),
+            _react2.default.createElement(_list2.default, null),
+            _react2.default.createElement(
+              'button',
+              { onClick: this.handleClick },
+              'Click Me!'
+            )
+          ),
+          _react2.default.createElement(
+            'ul',
+            { 'class': 'list-group' },
+            _react2.default.createElement(
+              'li',
+              { 'class': 'list-group-item' },
+              'Cras justo odio'
+            ),
+            _react2.default.createElement(
+              'li',
+              { 'class': 'list-group-item' },
+              'Dapibus ac facilisis in'
+            ),
+            _react2.default.createElement(
+              'li',
+              { 'class': 'list-group-item' },
+              'Morbi leo risus'
+            ),
+            _react2.default.createElement(
+              'li',
+              { 'class': 'list-group-item' },
+              'Porta ac consectetur ac'
+            ),
+            _react2.default.createElement(
+              'li',
+              { 'class': 'list-group-item' },
+              'Vestibulum at eros'
+            )
+          )
         )
       );
     }
