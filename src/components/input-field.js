@@ -7,6 +7,11 @@ const InputField = (props) => {
     props.handleSubmit(props.searchTerm);
   }
 
+  function handleClick(event, searchNumber) {
+    event.preventDefault();
+    props.handleClick(searchNumber);
+  }
+
   return (
     <div>
       <div className="jumbotron">
@@ -17,11 +22,11 @@ const InputField = (props) => {
           </div>
         </form>
         <div className="my-number">
-          <button type="button" className="my-number-button">1</button>
-          <button type="button" className="my-number-button">5</button>
-          <button type="button" className="my-number-button">10</button>
-          <button type="button" className="my-number-button">20</button>
-          <button type="button" className="my-number-button">40</button>
+          <button type="button" className="my-number-button" onClick={event => handleClick(event, 1)}>1</button>
+          <button type="button" className="my-number-button" onClick={event => handleClick(event, 5)}>5</button>
+          <button type="button" className="my-number-button" onClick={event => handleClick(event, 10)}>10</button>
+          <button type="button" className="my-number-button" onClick={event => handleClick(event, 20)}>20</button>
+          <button type="button" className="my-number-button" onClick={event => handleClick(event, 40)}>40</button>
         </div>
       </div>
     </div>

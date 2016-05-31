@@ -11,44 +11,21 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      results: [
-        {
-          id: 1,
-          title: 'title-1',
-          text: 'text-1'
-        },
-        {
-          id: 2,
-          title: 'title-2',
-          text: 'text-2'
-        }
-      ],
-      searchTerm: ''
+      results: [],
+      searchTerm: '',
+      searchNumber: 5
     };
     this.handleSearch = this.handleSearch.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
-
-  // handleClick() {
-  //     //API request
-  //     let api_url = "https://en.wikipedia.org/w/api.php",
-  //         search_term = 'tokyo';
-  //
-  //     $.ajax({url: api_url,
-  //            dataType: "jsonp",
-  //            jsonp: "callback",
-  //            data: {action: "opensearch",
-  //                   search: search_term,
-  //                   limit: 5,
-  //                   format: "json"},
-  //            success: function(response) {
-  //            console.log(response);
-  //         }
-  //     });
-  // }
 
   handleSearch(searchTerm) {
     this.setState({searchTerm});
+  }
+
+  handleClick(searchNumber) {
+    this.setState({searchNumber});
   }
 
   handleSubmit(searchTerm) {
@@ -59,20 +36,19 @@ class Main extends React.Component {
            jsonp: "callback",
            data: {action: "opensearch",
                   search: searchTerm,
-                  limit: 1,
+                  limit: this.state.searchNumber,
                   format: "json"},
-           success: function(response) {
-           console.log(response);
-        }
+           success: response => {
+             this.setState({results: response});
+           }
     });
-
   }
 
   render() {
     return (
       <div className="container">
         <h1 className="my-main-header">wiki viewer</h1>
-        <InputField searchTerm={this.state.searchTerm} handleSearch={this.handleSearch} handleSubmit={this.handleSubmit} />
+        <InputField searchTerm={this.state.searchTerm} handleClick={this.handleClick} handleSearch={this.handleSearch} handleSubmit={this.handleSubmit} />
         <List results={this.state.results} />
       </div>
     );
