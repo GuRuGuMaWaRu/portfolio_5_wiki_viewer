@@ -23,38 +23,56 @@ class Main extends React.Component {
           text: 'text-2'
         }
       ],
-      search: ''
-    }
+      searchTerm: ''
+    };
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleClick() {
-      //API request
-      var api_url = "https://en.wikipedia.org/w/api.php",
-          search_term = 'tokyo';
+  // handleClick() {
+  //     //API request
+  //     let api_url = "https://en.wikipedia.org/w/api.php",
+  //         search_term = 'tokyo';
+  //
+  //     $.ajax({url: api_url,
+  //            dataType: "jsonp",
+  //            jsonp: "callback",
+  //            data: {action: "opensearch",
+  //                   search: search_term,
+  //                   limit: 5,
+  //                   format: "json"},
+  //            success: function(response) {
+  //            console.log(response);
+  //         }
+  //     });
+  // }
 
-      $.ajax({url: api_url,
-             dataType: "jsonp",
-             jsonp: "callback",
-             data: {action: "opensearch",
-                    search: search_term,
-                    limit: 5,
-                    format: "json"},
-             success: function(response) {
-             console.log(response);
-          }
-      });
+  handleSearch(searchTerm) {
+    this.setState({searchTerm});
   }
 
-  handleSearch(search) {
-    console.log(search);
-    this.setState({search: search});
+  handleSubmit(searchTerm) {
+    let api_url = "https://en.wikipedia.org/w/api.php";
+
+    $.ajax({url: api_url,
+           dataType: "jsonp",
+           jsonp: "callback",
+           data: {action: "opensearch",
+                  search: searchTerm,
+                  limit: 1,
+                  format: "json"},
+           success: function(response) {
+           console.log(response);
+        }
+    });
+
   }
 
   render() {
     return (
       <div className="container">
         <h1 className="my-main-header">wiki viewer</h1>
-        <InputField search={this.state.search} handleSearch={this.handleSearch} />
+        <InputField searchTerm={this.state.searchTerm} handleSearch={this.handleSearch} handleSubmit={this.handleSubmit} />
         <List results={this.state.results} />
       </div>
     );
