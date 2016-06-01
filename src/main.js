@@ -41,7 +41,7 @@ class Main extends React.Component {
            success: response => {
             //  console.log('Response from inside API call: ' + response);
              this.setState({results: response});
-            //  console.log('State from inside API call: ' + this.state.results);
+             console.log(response);
            }
     });
   }
