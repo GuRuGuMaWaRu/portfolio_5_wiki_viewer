@@ -9,6 +9,7 @@ $result-color    : #FFA69E;
 
 body {
   background: $background-color;
+  font-family: 'Exo', sans-serif;
 }
 
 a {
@@ -20,26 +21,34 @@ a {
 
 .my-main-header {
   color: $header-color;
-  font-size: 6em;
+  font-size: 4em;
+  font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: -0.38em;
+  // margin-bottom: -0.38em;
+}
+
+.my-test-input {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #000;
 }
 
 .jumbotron {
   background: $white;
   border: 2px solid $border-color;
+  border: none;
 }
 
 .my-form {
-  font-size: 1.5em;
+  // font-size: 1.5em;
   text-align: center;
   margin-top: 3em;
   &-input {
     background: $white;
     display: inline-block;
     text-align: center;
-    font-size:1.4em;
+    // font-size:1.4em;
     border: none;
     border-bottom: 2px solid $border-color;
     width: 60%;
@@ -48,7 +57,7 @@ a {
   }
   &-button {
     color: $button-color;
-    font-size: 1.3em;
+    // font-size: 1.3em;
     border: none;
     background: $white;
   }

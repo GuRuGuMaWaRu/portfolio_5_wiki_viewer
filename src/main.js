@@ -39,9 +39,7 @@ class Main extends React.Component {
                   limit: this.state.searchNumber,
                   format: "json"},
            success: response => {
-            //  console.log('Response from inside API call: ' + response);
              this.setState({results: response});
-             console.log(response);
            }
     });
   }
@@ -49,8 +47,12 @@ class Main extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1 className="my-main-header">wiki viewer</h1>
-        <InputField searchTerm={this.state.searchTerm} handleClick={this.handleClick} handleSearch={this.handleSearch} handleSubmit={this.handleSubmit} />
+        <div className="row">
+          <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+            <h1 className="my-main-header">wiki viewer</h1>
+            <InputField searchTerm={this.state.searchTerm} handleClick={this.handleClick} handleSearch={this.handleSearch} handleSubmit={this.handleSubmit} />
+          </div>
+        </div>
         <List results={this.state.results} />
       </div>
     );
