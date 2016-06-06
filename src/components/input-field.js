@@ -14,9 +14,15 @@ const InputField = (props) => {
 
   return (
     <div>
-    <div className="my-test-input">
-      This is my test input
-    </div>
+    <form className="my-test-form">
+      <div className="form-group">
+        <input id="test-input" className="form-control" placeholder="This is my test input"/>
+        <button id="test-button" className="btn">Joy</button>
+      </div>
+      <button type="button" className="btn btn-primary btn-lg btn-block">Block level button</button>
+      <button type="button" className="btn btn-default btn-lg btn-block">Block level button</button>
+      <button className="btn btn-default" type="submit">GO</button>
+    </form>
     <div className="jumbotron">
       <form role="form" onSubmit={event => handleSubmit(event)}>
         <div className="form-group my-form">
