@@ -48,7 +48,7 @@ class Main extends React.Component {
   render() {
     return (
       <div className="my-container">
-      <InputField searchTerm={this.state.searchTerm} handleClick={this.handleClick} handleSearch={this.handleSearch} handleSubmit={this.handleSubmit} />
+        <InputField searchTerm={this.state.searchTerm} handleClick={this.handleClick} handleSearch={this.handleSearch} handleSubmit={this.handleSubmit} />
       </div>
     );
   }

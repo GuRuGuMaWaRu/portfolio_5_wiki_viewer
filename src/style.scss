@@ -6,7 +6,7 @@ $button-color    : #FF686B;
 $border-color    : #FF686B;
 $result-color    : #FFA69E;
 
-$background-color : $white;
+$background-color : #f4f4f4;
 $input-panel-color: #84DCC6;
 $shadow-color     : grey;
 
@@ -51,8 +51,18 @@ body {
       border: none;
       border-bottom: 1px solid $black;
       font-size: 1.5rem;
+      &:hover .glyphicon-flipped {
+        transform: scaleX(1);
+        -moz-transform: scaleX(1);
+        -webkit-transform: scaleX(1);
+        -ms-transform: scaleX(1);
+      }
       span {
         font-size: 1.8rem;
+        transition: all .5s;
+        -o-transition: all .5s;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
       }
       .glyphicon-flipped {
         transform: scaleX(-1);
