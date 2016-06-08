@@ -46,18 +46,24 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-            <h1 className="my-main-header">wiki viewer</h1>
-            <InputField searchTerm={this.state.searchTerm} handleClick={this.handleClick} handleSearch={this.handleSearch} handleSubmit={this.handleSubmit} />
-          </div>
-        </div>
-        <List results={this.state.results} />
+      <div className="my-container">
+      <InputField searchTerm={this.state.searchTerm} handleClick={this.handleClick} handleSearch={this.handleSearch} handleSubmit={this.handleSubmit} />
       </div>
     );
   }
 };
 
 ReactDOM.render(<Main />, document.getElementById('container'));
+
+{/*<div className="container">
+  <div className="row">
+    <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+      <h1 className="my-main-header">wiki viewer</h1>
+      <InputField searchTerm={this.state.searchTerm} handleClick={this.handleClick} handleSearch={this.handleSearch} handleSubmit={this.handleSubmit} />
+    </div>
+  </div>
+  <List results={this.state.results} />
+</div>*/}
+
+
 // console.log('https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json');

@@ -3,13 +3,53 @@ $white           : #fff;
 
 $header-color    : #84DCC6;
 $button-color    : #FF686B;
-$background-color: $white;
 $border-color    : #FF686B;
 $result-color    : #FFA69E;
 
+$background-color : $white;
+$input-panel-color: #84DCC6;
+
 body {
   background: $background-color;
-  font-family: 'Exo', sans-serif;
+  font-family: 'Roboto', 'Exo', sans-serif;
+}
+
+.my-container {
+  margin: 2em auto;
+  width: 40rem;
+}
+
+.my-input-panel {
+  background-color: $input-panel-color;
+  text-align: center;
+  height: 20rem;
+  h1 {
+    padding-top: .5em;
+    padding-bottom: .5em;
+  }
+  input {
+    background-color: $input-panel-color;
+    border: none;
+    border-bottom: 1px solid $black;
+    outline: none;
+    width: 200px;
+    font-size: 1.3rem;
+  }
+  button {
+    background-color: $input-panel-color;
+    border: none;
+    border-bottom: 1px solid $black;
+    font-size: 1.3rem;
+  }
+  span {
+    font-size: 1.8rem;
+  }
+  .glyphicon-flipped {
+    transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+  }
 }
 
 a {
