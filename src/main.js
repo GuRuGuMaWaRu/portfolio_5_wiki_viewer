@@ -39,6 +39,7 @@ class Main extends React.Component {
                   limit: this.state.searchNumber,
                   format: "json"},
            success: response => {
+             console.log(response);
              this.setState({results: response});
            }
     });
