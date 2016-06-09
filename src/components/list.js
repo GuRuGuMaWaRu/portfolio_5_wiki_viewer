@@ -18,10 +18,14 @@ const List = (props) => {
   }
 
   return (
-    <div>
-      {itemlist}
+    <div className="my-list">
+      The List
     </div>
   );
 }
 
 export default List;
+
+{/*<div>
+  {itemlist}
+</div>*/}
