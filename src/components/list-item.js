@@ -7,6 +7,7 @@ const ListItem = (props) => {
           <h5>{props.title}</h5>
           <p>{props.text}</p>
       </div>
+      <hr />
     </a>
   );
 }

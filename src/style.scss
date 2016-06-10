@@ -11,6 +11,10 @@ $input-panel-color  : #84DCC6;
 $shadow-color       : grey;
 $random-button-color: #FFA69E;
 
+%main-shadow {
+  box-shadow: 10px 10px 0px $shadow-color;
+}
+
 html, body, .my-container {
   height: 100%;
 }
@@ -39,10 +43,10 @@ body {
 }
 
 .my-input-panel {
+  @extend %main-shadow;
   background-color: $input-panel-color;
   text-align: center;
   height: 20rem;
-  box-shadow: 10px 10px $shadow-color;
   -webkit-perspective: 300;
   -moz-perspective: 300;
   -ms-perspective: 300;
@@ -77,10 +81,10 @@ body {
       }
       span {
         font-size: 1.8rem;
-        transition: all .5s;
-        -o-transition: all .5s;
-        -moz-transition: all .5s;
-        -webkit-transition: all .5s;
+        transition: all .2s;
+        -o-transition: all .2s;
+        -moz-transition: all .2s;
+        -webkit-transition: all .2s;
       }
       .glyphicon-flipped {
         transform: scaleX(-1);
@@ -95,10 +99,10 @@ body {
     padding: 5px 10px;
     border: none;
     margin-top: 30px;
-    transition: transform .5s, box-shadow .5s, background-color .2s;
-    -o-transition: transform .5s, box-shadow .5s, background-color .2s;
-    -moz-transition: transform .5s, box-shadow .5s, background-color .2s;
-    -webkit-transition: transform .5s, box-shadow .5s, background-color .2s;
+    transition: transform .2s, box-shadow .2s, background-color .2s;
+    -o-transition: transform .2s, box-shadow .2s, background-color .2s;
+    -moz-transition: transform .2s, box-shadow .2s, background-color .2s;
+    -webkit-transition: transform .2s, box-shadow .2s, background-color .2s;
     box-shadow: 0 0 $shadow-color;
     &:focus {
       outline: 0;
@@ -114,8 +118,8 @@ body {
 }
 
 .my-list {
+  @extend %main-shadow;
   background-color: $white;
-  box-shadow: 10px 10px $shadow-color;
   -webkit-perspective: 300;
   -moz-perspective: 300;
   -ms-perspective: 300;

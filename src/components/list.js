@@ -15,13 +15,19 @@ const List = (props) => {
         itemlist.push(<ListItem key={i} title={props.results[1][i]} text={props.results[2][i]} href={props.results[3][i]} />);
       }
     }
+    return (
+      <div className="my-list">
+        Populated List
+        {itemlist}
+      </div>
+    );
+  } else {
+    return (
+      <div className="my-list">
+      Empty List
+      </div>
+    );
   }
-
-  return (
-    <div className="my-list">
-      The List
-    </div>
-  );
 }
 
 export default List;
