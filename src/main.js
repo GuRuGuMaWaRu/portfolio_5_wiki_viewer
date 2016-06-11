@@ -31,18 +31,42 @@ class Main extends React.Component {
   handleSubmit(searchTerm) {
     let api_url = "https://en.wikipedia.org/w/api.php";
 
-    $.ajax({url: api_url,
-           dataType: "jsonp",
-           jsonp: "callback",
-           data: {action: "opensearch",
-                  search: searchTerm,
-                  limit: this.state.searchNumber,
-                  format: "json"},
-           success: response => {
-             console.log(response);
-             this.setState({results: response});
-           }
-    });
+    // window.setTimeout(function() {
+    //
+    // })
+    if (this.state.results.length > 0) {
+      console.log('yeah!');
+      $('.my-list-item').animate({
+        marginTop: '0'
+      }, 300, function() {
+        $.ajax({url: api_url,
+               dataType: "jsonp",
+               jsonp: "callback",
+               data: {action: "opensearch",
+                      search: searchTerm,
+                      limit: this.state.searchNumber,
+                      format: "json"},
+               success: response => {
+                 console.log(response);
+                 this.setState({results: response});
+               }
+        });
+      });
+    } else {
+      console.log('what!');
+      $.ajax({url: api_url,
+             dataType: "jsonp",
+             jsonp: "callback",
+             data: {action: "opensearch",
+                    search: searchTerm,
+                    limit: this.state.searchNumber,
+                    format: "json"},
+             success: response => {
+               console.log(response);
+               this.setState({results: response});
+             }
+      });
+    }
   }
 
   render() {

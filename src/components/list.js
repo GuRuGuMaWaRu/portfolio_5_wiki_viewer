@@ -4,28 +4,10 @@ import ListItem from './list-item.js';
 class List extends React.Component {
   componentDidUpdate() {
     if (this.props.results.length > 0) {
-      // console.log(document.getElementsByClassName('my-list-item'));
-      $('.my-list-item').addClass('animated');
+      console.log('animating!');
       $('.my-list-item').animate({
         marginTop: '15px'
       }, 300);
-
-      // let listItems = document.getElementsByClassName('my-list-item');
-      // console.log(listItems);
-      // listItems.map(function(item) {
-      //   console.log(item);
-      //   return item.className = 'animated';
-      // });
-      // console.log(listItems);
-      // for (let i = 0, length = listItems.length; i < length; i++) {
-      //   console.log(listItems[i]);
-        // console.log(listItems[i].className);
-        // listItems[i].className += 'bu';
-      //   listItems[i].addClass('bu');
-      //   console.log(listItems[i].className);
-
-        // listItems[i].className = 'animated';
-      // }
     }
   }
 

@@ -4,7 +4,7 @@ class ListItem extends React.Component {
   // console.log(document.getElementsByClassName('my-list-item'));
   // document.getElementsByClassName('my-list-item').className = 'animated';
   componentDidMount() {
-    // document.getElementsByClassName('my-list-item').className = 'my-list-item animated';
+    
   }
 
   render() {
