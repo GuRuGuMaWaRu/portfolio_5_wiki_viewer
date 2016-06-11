@@ -127,6 +127,38 @@ body {
   flex-grow: 2;
 }
 
+.my-list-item {
+  @extend %main-shadow;
+  background-color: $white;
+  -webkit-perspective: 300;
+  -moz-perspective: 300;
+  -ms-perspective: 300;
+  perspective: 300;
+  padding: 10px;
+  transition: all .5s;
+  // -o-transition: all .5s;
+  // -moz-transition: all .5s;
+  // -webkit-transition: all .5s;
+  &:hover {
+    background-color: red;
+  }
+  // -o-transition: transform .2s, box-shadow .2s, background-color .2s;
+  // -moz-transition: transform .2s, box-shadow .2s, background-color .2s;
+  // -webkit-transition: transform .2s, box-shadow .2s, background-color .2s;
+  // &:hover {
+  //   transform: translateZ(50px) scaleZ(2.5);
+  // }
+  // &.animated {
+  //   background-color: $black;
+  //   margin-top: 20px;
+  // }
+}
+
+.animated {
+  background-color: $black;
+}
+
+
 // a {
 //   &:link, &:hover, &:visited, &:active {
 //   color: $black;
