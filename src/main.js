@@ -13,14 +13,26 @@ class Main extends React.Component {
     this.state = {
       results: [],
       searchTerm: '',
-      searchNumber: 5
+      searchNumber: 15,
+      animated: false
     };
-    this.handleSearch = this.handleSearch.bind(this);
+    this.handleType = this.handleType.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleSearch(searchTerm) {
+  handleType(searchTerm) {
+    let self = this;
+
+    if (this.state.animated === true) {
+      $('.my-list-item').animate({
+        marginTop: '0'
+      }, 300, function() {
+        window.setTimeout(function() {
+          self.setState({animated: false, results: []});
+        }, 500);
+      });
+    }
     this.setState({searchTerm});
   }
 
@@ -31,48 +43,29 @@ class Main extends React.Component {
   handleSubmit(searchTerm) {
     let api_url = "https://en.wikipedia.org/w/api.php";
 
-    // window.setTimeout(function() {
-    //
-    // })
-    if (this.state.results.length > 0) {
-      console.log('yeah!');
+    $.ajax({url: api_url,
+           dataType: "jsonp",
+           jsonp: "callback",
+           data: {action: "opensearch",
+                  search: searchTerm,
+                  limit: this.state.searchNumber,
+                  format: "json"},
+           success: response => {
+             console.log(response);
+             this.setState({results: response, animated: true});
+           }
+    });
+    window.setTimeout(function() {
       $('.my-list-item').animate({
-        marginTop: '0'
-      }, 300, function() {
-        $.ajax({url: api_url,
-               dataType: "jsonp",
-               jsonp: "callback",
-               data: {action: "opensearch",
-                      search: searchTerm,
-                      limit: this.state.searchNumber,
-                      format: "json"},
-               success: response => {
-                 console.log(response);
-                 this.setState({results: response});
-               }
-        });
-      });
-    } else {
-      console.log('what!');
-      $.ajax({url: api_url,
-             dataType: "jsonp",
-             jsonp: "callback",
-             data: {action: "opensearch",
-                    search: searchTerm,
-                    limit: this.state.searchNumber,
-                    format: "json"},
-             success: response => {
-               console.log(response);
-               this.setState({results: response});
-             }
-      });
-    }
+        marginTop: '15px'
+      }, 300);
+    }, 300);
   }
 
   render() {
     return (
       <div className="my-container">
-        <InputField searchTerm={this.state.searchTerm} handleClick={this.handleClick} handleSearch={this.handleSearch} handleSubmit={this.handleSubmit} />
+        <InputField searchTerm={this.state.searchTerm} handleClick={this.handleClick} handleType={this.handleType} handleSubmit={this.handleSubmit} />
         <List results={this.state.results} />
       </div>
     );
@@ -80,16 +73,5 @@ class Main extends React.Component {
 };
 
 ReactDOM.render(<Main />, document.getElementById('container'));
-
-{/*<div className="container">
-  <div className="row">
-    <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-      <h1 className="my-main-header">wiki viewer</h1>
-      <InputField searchTerm={this.state.searchTerm} handleClick={this.handleClick} handleSearch={this.handleSearch} handleSubmit={this.handleSubmit} />
-    </div>
-  </div>
-  <List results={this.state.results} />
-</div>*/}
-
 
 // console.log('https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json');

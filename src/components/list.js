@@ -1,41 +1,33 @@
 import React from 'react';
 import ListItem from './list-item.js';
 
-class List extends React.Component {
-  componentDidUpdate() {
-    if (this.props.results.length > 0) {
-      console.log('animating!');
-      $('.my-list-item').animate({
-        marginTop: '15px'
-      }, 300);
+const List = (props) => {
+
+  let itemlist = [],
+        i = 0;
+
+  function build(iterator) {
+    for (let i = iterator, length = props.results[1].length; i < length; i++ ) {
+      itemlist.push(<ListItem key={i} title={props.results[1][i]} text={props.results[2][i]} href={props.results[3][i]} />);
     }
   }
 
-  render() {
-    let itemlist = [],
-        i = 0;
-
-    if (this.props.results.length > 0) {
-      if (this.props.results[2][0].substr(-9) === 'can mean:') {
-        for (let i = 1, length = this.props.results[1].length; i < length; i++ ) {
-          itemlist.push(<ListItem key={i} title={this.props.results[1][i]} text={this.props.results[2][i]} href={this.props.results[3][i]} />);
-        }
-      } else {
-        for (let i = 0, length = this.props.results[1].length; i < length; i++ ) {
-          itemlist.push(<ListItem key={i} title={this.props.results[1][i]} text={this.props.results[2][i]} href={this.props.results[3][i]} />);
-        }
-      }
-      return (
-        <div>
-          {itemlist}
-        </div>
-      );
+  if (props.results.length > 0) {
+    if (props.results[2][0].substr(-9) === 'can mean:') {
+      build(1);
     } else {
-      return (
-        <div className="my-list">
-        </div>
-      );
+      build(0);
     }
+    return (
+      <div>
+        {itemlist}
+      </div>
+    );
+  } else {
+    return (
+      <div className="my-list">
+      </div>
+    );
   }
 }
 

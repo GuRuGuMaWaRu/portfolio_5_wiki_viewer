@@ -46,7 +46,6 @@ body {
   @extend %main-shadow;
   background-color: $input-panel-color;
   text-align: center;
-  // height: 20rem;
   -webkit-perspective: 300;
   -moz-perspective: 300;
   -ms-perspective: 300;
@@ -67,6 +66,13 @@ body {
       outline: none;
       width: 200px;
       font-size: 1.5rem;
+      // &:focus {
+      //   color: $random-button-color;
+      //   border-bottom: 1px solid $random-button-color;
+      // }
+      // &:focus .my-submit-button {
+      //   border-bottom: 1px solid $random-button-color;
+      // }
     }
     .my-submit-button {
       background-color: $input-panel-color;
@@ -140,7 +146,7 @@ body {
   // -moz-transition: all .5s;
   // -webkit-transition: all .5s;
   &:hover {
-    background-color: red;
+    // background-color: red;
   }
   // -o-transition: transform .2s, box-shadow .2s, background-color .2s;
   // -moz-transition: transform .2s, box-shadow .2s, background-color .2s;

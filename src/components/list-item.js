@@ -1,11 +1,6 @@
 import React from 'react';
 
 class ListItem extends React.Component {
-  // console.log(document.getElementsByClassName('my-list-item'));
-  // document.getElementsByClassName('my-list-item').className = 'animated';
-  componentDidMount() {
-    
-  }
 
   render() {
     return (
