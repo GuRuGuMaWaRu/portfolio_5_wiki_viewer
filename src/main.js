@@ -45,6 +45,7 @@ class Main extends React.Component {
   handleSubmit(searchTerm) {
     let api_url = "https://en.wikipedia.org/w/api.php";
 
+    // this.setState({itemOpacity: 1});
     $.ajax({url: api_url,
            dataType: "jsonp",
            jsonp: "callback",
@@ -54,10 +55,16 @@ class Main extends React.Component {
                   format: "json"},
            success: response => {
              console.log(response);
-             this.setState({results: response, animated: true, textOpacity: 1, itemOpacity: 1});
              $('.my-list-item').animate({
                marginTop: '15px'
              }, 600);
+            //  window.setTimeout(() => {
+            //    $('.my-list-item').animate({
+            //      marginTop: '15px'
+            //    }, 600);
+            //  }, 1000);
+
+             this.setState({results: response, animated: true, textOpacity: 1, itemOpacity: 1});
            }
     });
   }

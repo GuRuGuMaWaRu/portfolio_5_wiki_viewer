@@ -138,6 +138,10 @@ a {
   -moz-perspective: 300;
   -ms-perspective: 300;
   perspective: 300;
+  -webkit-perspective-origin: center bottom;
+  -moz-perspective-origin: center bottom;
+  -ms-perspective-origin: center bottom;
+  perspective-origin: center bottom;
   flex-grow: 2;
 }
 
@@ -149,7 +153,7 @@ a {
   -ms-perspective: 300;
   perspective: 300;
   padding: 10px;
-  // transition: opacity .3s ease;
+  transition: all .3s ease;
   .my-search-result {
     opacity: 0;
     transition: all .6s ease;
@@ -158,7 +162,7 @@ a {
   // -moz-transition: all .5s;
   // -webkit-transition: all .5s;
   &:hover {
-    // background-color: red;
+    transform: translateX(-10px) scaleZ(1.5);
   }
   // -o-transition: transform .2s, box-shadow .2s, background-color .2s;
   // -moz-transition: transform .2s, box-shadow .2s, background-color .2s;
