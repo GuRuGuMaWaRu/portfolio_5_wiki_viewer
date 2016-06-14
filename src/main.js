@@ -27,8 +27,8 @@ class Main extends React.Component {
     if (this.state.animated === true) {
       $('.my-list-item').animate({
         marginTop: '0'
-      }, 300, function() {
-        window.setTimeout(function() {
+      }, 300, () => {
+        window.setTimeout(() => {
           self.setState({animated: false, results: []});
         }, 500);
       });
@@ -53,13 +53,11 @@ class Main extends React.Component {
            success: response => {
              console.log(response);
              this.setState({results: response, animated: true});
+             $('.my-list-item').animate({
+               marginTop: '15px'
+             }, 300);
            }
     });
-    window.setTimeout(function() {
-      $('.my-list-item').animate({
-        marginTop: '15px'
-      }, 300);
-    }, 300);
   }
 
   render() {

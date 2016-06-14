@@ -13,7 +13,7 @@ const List = (props) => {
   }
 
   if (props.results.length > 0) {
-    if (props.results[2][0].substr(-9) === 'can mean:') {
+    if (props.results[2][0].substr(-9) === 'can mean:' || 'refer to:') {
       build(1);
     } else {
       build(0);
@@ -25,8 +25,7 @@ const List = (props) => {
     );
   } else {
     return (
-      <div className="my-list">
-      </div>
+      <div className="my-list"></div>
     );
   }
 }
