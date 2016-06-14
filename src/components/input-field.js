@@ -16,7 +16,7 @@ const InputField = (props) => {
         <input type="text" value={props.searchTerm} onChange={event => props.handleType(event.target.value)} />
         <button className="my-submit-button"><span className="glyphicon glyphicon-search glyphicon-flipped"></span></button>
       </form>
-      <button className="my-random-button"><a href="https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json" target="blank"></a>Go Random!</button>
+      <button className="my-random-button"><a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">Go Random!</a></button>
     </div>
   );
 }

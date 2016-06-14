@@ -13,8 +13,9 @@ class Main extends React.Component {
     this.state = {
       results: [],
       searchTerm: '',
-      searchNumber: 15,
-      animated: false
+      searchNumber: 5,
+      animated: false,
+      opacity: 0
     };
     this.handleType = this.handleType.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,9 +28,9 @@ class Main extends React.Component {
     if (this.state.animated === true) {
       $('.my-list-item').animate({
         marginTop: '0'
-      }, 300, () => {
+      }, 600, () => {
         window.setTimeout(() => {
-          self.setState({animated: false, results: []});
+          self.setState({animated: false, opacity: 0});
         }, 500);
       });
     }
@@ -52,10 +53,10 @@ class Main extends React.Component {
                   format: "json"},
            success: response => {
              console.log(response);
-             this.setState({results: response, animated: true});
+             this.setState({results: response, animated: true, opacity: 1});
              $('.my-list-item').animate({
                marginTop: '15px'
-             }, 300);
+             }, 600);
            }
     });
   }
@@ -64,7 +65,7 @@ class Main extends React.Component {
     return (
       <div className="my-container">
         <InputField searchTerm={this.state.searchTerm} handleClick={this.handleClick} handleType={this.handleType} handleSubmit={this.handleSubmit} />
-        <List results={this.state.results} />
+        <List opacity={this.state.opacity} results={this.state.results} />
       </div>
     );
   }

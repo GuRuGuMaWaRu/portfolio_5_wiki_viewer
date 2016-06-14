@@ -24,6 +24,13 @@ body {
   font-family: 'Roboto', 'Exo', sans-serif;
 }
 
+a {
+  &:link, &:hover, &:visited, &:active {
+  color: $black;
+  text-decoration: none;
+  }
+}
+
 #container {
   display: flex;
   display: -webkit-flex;
@@ -142,7 +149,11 @@ body {
   -ms-perspective: 300;
   perspective: 300;
   padding: 10px;
-  transition: all .3s ease;
+  // transition: opacity .3s ease;
+  .my-search-result {
+    opacity: 0;
+    transition: all 1s ease;
+  }
   // -o-transition: all .5s;
   // -moz-transition: all .5s;
   // -webkit-transition: all .5s;
@@ -164,7 +175,6 @@ body {
 .animated {
   background-color: $black;
 }
-
 
 // a {
 //   &:link, &:hover, &:visited, &:active {

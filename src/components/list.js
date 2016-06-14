@@ -8,7 +8,11 @@ const List = (props) => {
 
   function build(iterator) {
     for (let i = iterator, length = props.results[1].length; i < length; i++ ) {
-      itemlist.push(<ListItem key={i} title={props.results[1][i]} text={props.results[2][i]} href={props.results[3][i]} />);
+      itemlist.push(<ListItem opacity={props.opacity}
+                              key={i}
+                              title={props.results[1][i]}
+                              text={props.results[2][i]}
+                              href={props.results[3][i]} />);
     }
   }
 
@@ -24,8 +28,17 @@ const List = (props) => {
       </div>
     );
   } else {
+    for (let i = 0, length = 4; i < length; i++ ) {
+      itemlist.push(<ListItem opacity={props.opacity}
+                              key={i}
+                              title=""
+                              text=""
+                              href="#" />);
+    }
     return (
-      <div className="my-list"></div>
+      <div>
+        {itemlist}
+      </div>
     );
   }
 }
