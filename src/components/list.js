@@ -8,14 +8,23 @@ const List = (props) => {
 
   function build(iterator) {
     for (let i = iterator, length = props.results[1].length; i < length; i++ ) {
-      itemlist.push(<ListItem animated={props.animated} textOpacity={props.textOpacity} itemOpacity={props.itemOpacity}
+      itemlist.push(<ListItem animated={props.animated} textOpacity={props.textOpacity}
         key={i} title={props.results[1][i]} text={props.results[2][i]}
         href={props.results[3][i]} />);
     }
   }
 
+  function buildEmpty() {
+    for (let i = 0, length = 5; i < length; i++ ) {
+      itemlist.push(<ListItem animated="false" textOpacity={props.textOpacity} key={i} title="" text="" href="#" />);
+    }
+  }
+
   if (props.results.length > 0) {
-    if (props.results[2][0].substr(-9) === 'can mean:' || 'refer to:') {
+    if (props.results[1].length === 0) {
+      console.log('what kind of search query is that?');
+      buildEmpty();
+    } else if (props.results[2][0].substr(-9) === 'can mean:' || 'refer to:') {
       build(1);
     } else {
       build(0);
@@ -26,10 +35,7 @@ const List = (props) => {
       </div>
     );
   } else {
-    for (let i = 0, length = 5; i < length; i++ ) {
-      itemlist.push(<ListItem textOpacity={props.textOpacity} itemOpacity={props.itemOpacity}
-        key={i} title="" text="" href="#" />);
-    }
+    buildEmpty();
     return (
       <div className="my-list">
         {itemlist}

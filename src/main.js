@@ -15,8 +15,7 @@ class Main extends React.Component {
       searchTerm: '',
       searchNumber: 5,
       animated: false,
-      textOpacity: 0,
-      itemOpacity: 0
+      textOpacity: 0
     };
     this.handleType = this.handleType.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,9 +29,7 @@ class Main extends React.Component {
       $('.my-list-item').animate({
         marginTop: '0'
       }, 500, () => {
-        // window.setTimeout(() => {
-          self.setState({animated: false, textOpacity: 0});
-        // }, 200);
+        self.setState({animated: false, textOpacity: 0});
       });
     }
     this.setState({searchTerm});
@@ -45,7 +42,6 @@ class Main extends React.Component {
   handleSubmit(searchTerm) {
     let api_url = "https://en.wikipedia.org/w/api.php";
 
-    // this.setState({itemOpacity: 1});
     $.ajax({url: api_url,
            dataType: "jsonp",
            jsonp: "callback",
@@ -58,13 +54,7 @@ class Main extends React.Component {
              $('.my-list-item').animate({
                marginTop: '15px'
              }, 500);
-            //  window.setTimeout(() => {
-            //    $('.my-list-item').animate({
-            //      marginTop: '15px'
-            //    }, 600);
-            //  }, 1000);
-
-             this.setState({results: response, animated: true, textOpacity: 1, itemOpacity: 1});
+             this.setState({results: response, animated: true, textOpacity: 1});
            }
     });
   }
@@ -73,7 +63,7 @@ class Main extends React.Component {
     return (
       <div className="my-container">
         <InputField searchTerm={this.state.searchTerm} handleClick={this.handleClick} handleType={this.handleType} handleSubmit={this.handleSubmit} />
-        <List animated={this.state.animated} textOpacity={this.state.textOpacity} itemOpacity={this.state.itemOpacity} results={this.state.results} />
+        <List animated={this.state.animated} textOpacity={this.state.textOpacity} results={this.state.results} />
       </div>
     );
   }
