@@ -29,10 +29,10 @@ class Main extends React.Component {
     if (this.state.animated === true) {
       $('.my-list-item').animate({
         marginTop: '0'
-      }, 600, () => {
-        window.setTimeout(() => {
+      }, 500, () => {
+        // window.setTimeout(() => {
           self.setState({animated: false, textOpacity: 0});
-        }, 200);
+        // }, 200);
       });
     }
     this.setState({searchTerm});
@@ -57,7 +57,7 @@ class Main extends React.Component {
              console.log(response);
              $('.my-list-item').animate({
                marginTop: '15px'
-             }, 600);
+             }, 500);
             //  window.setTimeout(() => {
             //    $('.my-list-item').animate({
             //      marginTop: '15px'
@@ -73,7 +73,7 @@ class Main extends React.Component {
     return (
       <div className="my-container">
         <InputField searchTerm={this.state.searchTerm} handleClick={this.handleClick} handleType={this.handleType} handleSubmit={this.handleSubmit} />
-        <List textOpacity={this.state.textOpacity} itemOpacity={this.state.itemOpacity} results={this.state.results} />
+        <List animated={this.state.animated} textOpacity={this.state.textOpacity} itemOpacity={this.state.itemOpacity} results={this.state.results} />
       </div>
     );
   }

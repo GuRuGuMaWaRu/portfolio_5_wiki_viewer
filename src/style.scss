@@ -6,7 +6,7 @@ $button-color    : #FF686B;
 $border-color    : #FF686B;
 $result-color    : #FFA69E;
 
-$background-color   : #f6f6f6;
+$background-color   : #e2e2e2;
 $input-panel-color  : #84DCC6;
 $shadow-color       : grey;
 $random-button-color: #FFA69E;
@@ -46,7 +46,8 @@ a {
   -webkit-flex-direction: column;
   flex-grow: 1;
   margin: 2em auto 2em;
-  width: 40rem;
+  width: 90%;
+  max-width: 38rem;
 }
 
 .my-input-panel {
@@ -161,7 +162,7 @@ a {
   // -o-transition: all .5s;
   // -moz-transition: all .5s;
   // -webkit-transition: all .5s;
-  &:hover {
+  &.cascaded:hover {
     transform: translateX(-10px) scaleZ(1.5);
   }
   // -o-transition: transform .2s, box-shadow .2s, background-color .2s;
