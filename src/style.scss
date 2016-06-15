@@ -133,17 +133,21 @@ a {
 }
 
 .my-list {
-  @extend %main-shadow;
-  background-color: $white;
-  -webkit-perspective: 300;
-  -moz-perspective: 300;
-  -ms-perspective: 300;
-  perspective: 300;
-  -webkit-perspective-origin: center bottom;
-  -moz-perspective-origin: center bottom;
-  -ms-perspective-origin: center bottom;
-  perspective-origin: center bottom;
+  // @extend %main-shadow;
+  // background-color: $white;
+  // -webkit-perspective: 300;
+  // -moz-perspective: 300;
+  // -ms-perspective: 300;
+  // perspective: 300;
+  // -webkit-perspective-origin: center bottom;
+  // -moz-perspective-origin: center bottom;
+  // -ms-perspective-origin: center bottom;
+  // perspective-origin: center bottom;
   flex-grow: 2;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
 }
 
 .my-list-item {
@@ -154,6 +158,7 @@ a {
   -ms-perspective: 300;
   perspective: 300;
   padding: 10px;
+  flex-grow: 1;
   transition: all .3s ease;
   .my-search-result {
     opacity: 0;
