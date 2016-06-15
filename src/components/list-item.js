@@ -6,7 +6,7 @@ class ListItem extends React.Component {
     return (
       <div className={this.props.animated ? "my-list-item cascaded" : "my-list-item"}>
         <a href={this.props.href} target="blank">
-          <div style={{opacity: this.props.textOpacity}} className="my-search-result">
+          <div style={{opacity: this.props.textOpacity, textAlign: this.props.centerText}} className="my-search-result">
               <h4>{this.props.title}</h4>
               <p>{this.props.text}</p>
           </div>
