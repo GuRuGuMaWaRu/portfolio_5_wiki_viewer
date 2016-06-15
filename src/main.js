@@ -29,7 +29,10 @@ class Main extends React.Component {
       $('.my-list-item').animate({
         marginTop: '0'
       }, 500, () => {
-        self.setState({animated: false, textOpacity: 0});
+        self.setState({textOpacity: 0});
+        window.setTimeout(() => {
+          self.setState({animated: false});
+        }, 1000);
       });
     }
     this.setState({searchTerm});
@@ -42,23 +45,25 @@ class Main extends React.Component {
   handleSubmit(searchTerm) {
     let api_url = "https://en.wikipedia.org/w/api.php";
 
-    $.ajax({url: api_url,
-           dataType: "jsonp",
-           jsonp: "callback",
-           data: {action: "opensearch",
-                  search: searchTerm,
-                  limit: this.state.searchNumber,
-                  format: "json"},
-           success: response => {
-             console.log(response);
-             if (response[1].length !== 0) {
-               $('.my-list-item').animate({
-                 marginTop: '15px'
-               }, 500);
+    if (this.state.animated === false) {
+      $.ajax({url: api_url,
+             dataType: "jsonp",
+             jsonp: "callback",
+             data: {action: "opensearch",
+                    search: searchTerm,
+                    limit: this.state.searchNumber,
+                    format: "json"},
+             success: response => {
+               console.log(response);
+               if (response[1].length !== 0) {
+                 $('.my-list-item').animate({
+                   marginTop: '15px'
+                 }, 500);
+               }
+               this.setState({results: response, animated: true, textOpacity: 1});
              }
-             this.setState({results: response, animated: true, textOpacity: 1});
-           }
-    });
+      });
+    }
   }
 
   render() {
