@@ -15,14 +15,14 @@ const List = (props) => {
   }
 
   function buildEmpty() {
-    for (let i = 0, length = 5; i < length; i++ ) {
-      itemlist.push(<ListItem animated="false" textOpacity={props.textOpacity} key={i} title="" text="" href="#" />);
+    itemlist.push(<ListItem animated={false} textOpacity={1} key={0} title="Please enter a valid search request" text="" href="#" />);
+    for (let i = 1, length = 5; i < length; i++ ) {
+      itemlist.push(<ListItem animated={false} textOpacity={props.textOpacity} key={i} title="" text="" href="#" />);
     }
   }
 
   if (props.results.length > 0) {
     if (props.results[1].length === 0) {
-      console.log('what kind of search query is that?');
       buildEmpty();
     } else if (props.results[2][0].substr(-9) === 'can mean:' || 'refer to:') {
       build(1);
@@ -30,7 +30,7 @@ const List = (props) => {
       build(0);
     }
     return (
-      <div>
+      <div className="my-list">
         {itemlist}
       </div>
     );

@@ -51,9 +51,11 @@ class Main extends React.Component {
                   format: "json"},
            success: response => {
              console.log(response);
-             $('.my-list-item').animate({
-               marginTop: '15px'
-             }, 500);
+             if (response[1].length !== 0) {
+               $('.my-list-item').animate({
+                 marginTop: '15px'
+               }, 500);
+             }
              this.setState({results: response, animated: true, textOpacity: 1});
            }
     });
