@@ -21,7 +21,7 @@ const List = (props) => {
   }
 
   function buildEmptyList() {
-    itemlist.push(<ListItem animated={false} textOpacity={1} key={0} title="" centerText={"center"} text="Please enter a valid search request" href="#" />);
+    itemlist.push(<ListItem animated={false} textOpacity={1} key={0} title="" centerText={"center"} text="Please enter a valid search request" />);
     for (let i = 1, length = 5; i < length; i++ ) {
       itemlist.push(<ListItem animated={false} textOpacity={props.textOpacity} key={i} title="" text="" href="#" />);
     }
