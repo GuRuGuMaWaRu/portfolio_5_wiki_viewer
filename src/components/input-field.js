@@ -2,8 +2,10 @@ import React from 'react';
 
 const InputField = (props) => {
 
+  // function to submit search request
   function handleSubmit(event) {
     event.preventDefault();
+    // start search only if there is a search entry
     if (props.searchTerm.length > 0) {
       props.handleSubmit(props.searchTerm);
     }

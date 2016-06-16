@@ -7,7 +7,7 @@ $shadow-color       : grey;
 $random-button-color: #FFA69E;
 
 %main-shadow {
-  box-shadow: 10px 10px 5px $shadow-color;
+  box-shadow: 10px 10px 0 $shadow-color;
 }
 
 html, body, .my-container {
@@ -157,16 +157,17 @@ a {
     opacity: 0;
     transition: all .6s ease;
   }
-  a {
-    transform-style: preserve-3d;
-  }
+  // a {
+  //   transform-style: preserve-3d;
+  // }
   // -o-transition: all .5s;
   // -moz-transition: all .5s;
   // -webkit-transition: all .5s;
   &.cascaded:hover {
     // transform: translateX(-10px) scaleZ(1.5);
     transform: translate3d(0, 0, 10px);
-    box-shadow: 8px 16px 5px $shadow-color;
+    transform-origin: left center;
+    box-shadow: 18px 18px $shadow-color;
   }
   // -o-transition: transform .2s, box-shadow .2s, background-color .2s;
   // -moz-transition: transform .2s, box-shadow .2s, background-color .2s;
