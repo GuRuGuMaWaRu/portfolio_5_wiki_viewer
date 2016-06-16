@@ -71,13 +71,17 @@ a {
       outline: none;
       width: 200px;
       font-size: 1.5rem;
-      &.disabled .my-submit-button {
-        border-bottom: 10px solid opacify($black, 0.7);
+      transition: border-bottom .2s, color .2s;
+      -o-transition: border-bottom .2s, color .2s;
+      -moz-transition: border-bottom .2s, color .2s;
+      -webkit-transition: border-bottom .2s, color .2s;
+      &:focus, &:hover {
+        color: darken($random-button-color, 10%);
+        border-bottom: 1px solid darken($random-button-color, 10%);
+        ~ .my-submit-button {
+          border-bottom: 1px solid darken($random-button-color, 10%);
+        }
       }
-      // &:focus {
-      //   color: $random-button-color;
-      //   border-bottom: 1px solid $random-button-color;
-      // }
       // &:focus .my-submit-button {
       //   border-bottom: 1px solid $random-button-color;
       // }
@@ -88,19 +92,25 @@ a {
       border-bottom: 1px solid $black;
       font-size: 1.5rem;
       outline: 0;
-      &:hover .glyphicon-flipped {
-        transform: scaleX(1);
-        -moz-transform: scaleX(1);
-        -webkit-transform: scaleX(1);
-        -ms-transform: scaleX(1);
+      transition: border-bottom .2s;
+      -o-transition: border-bottom .2s;
+      -moz-transition: border-bottom .2s;
+      -webkit-transition: border-bottom .2s;
+      &:hover {
+       .glyphicon-flipped {
+          color: darken($random-button-color, 10%);
+          transform: scaleX(1);
+          -moz-transform: scaleX(1);
+          -webkit-transform: scaleX(1);
+          -ms-transform: scaleX(1);
+        }
       }
       span {
-        color: opacify($black, .7);
         font-size: 1.8rem;
-        transition: all .2s;
-        -o-transition: all .2s;
-        -moz-transition: all .2s;
-        -webkit-transition: all .2s;
+        transition: transform .2s, color .2s;
+        -o-transition: transform .2s, color .2s;
+        -moz-transition: transform .2s, color .2s;
+        -webkit-transition: transform .2s, color .2s;
       }
       .glyphicon-flipped {
         transform: scaleX(-1);
