@@ -1,18 +1,13 @@
 $black           : #000;
 $white           : #fff;
 
-$header-color    : #84DCC6;
-$button-color    : #FF686B;
-$border-color    : #FF686B;
-$result-color    : #FFA69E;
-
 $background-color   : #e2e2e2;
 $input-panel-color  : #84DCC6;
 $shadow-color       : grey;
 $random-button-color: #FFA69E;
 
 %main-shadow {
-  box-shadow: 10px 10px 0px $shadow-color;
+  box-shadow: 10px 10px 5px $shadow-color;
 }
 
 html, body, .my-container {
@@ -56,10 +51,10 @@ a {
   @extend %main-shadow;
   background-color: $input-panel-color;
   text-align: center;
-  -webkit-perspective: 300;
-  -moz-perspective: 300;
-  -ms-perspective: 300;
-  perspective: 300;
+  -webkit-perspective: 700px;
+  -moz-perspective: 700px;
+  -ms-perspective: 700px;
+  perspective: 700px;
   -webkit-perspective-origin: center bottom;
   -moz-perspective-origin: center bottom;
   -ms-perspective-origin: center bottom;
@@ -76,7 +71,7 @@ a {
       outline: none;
       width: 200px;
       font-size: 1.5rem;
-      .disabled {
+      &.disabled .my-submit-button {
         border-bottom: 10px solid opacify($black, 0.7);
       }
       // &:focus {
@@ -92,6 +87,7 @@ a {
       border: none;
       border-bottom: 1px solid $black;
       font-size: 1.5rem;
+      outline: 0;
       &:hover .glyphicon-flipped {
         transform: scaleX(1);
         -moz-transform: scaleX(1);
@@ -128,11 +124,11 @@ a {
       outline: 0;
     }
     &:hover {
-      transform: translateZ(10px) scaleZ(1.5);
+      transform: translateZ(10px);
       box-shadow: 5px 5px $shadow-color;
     }
     &:active {
-      transform: translateZ(10px) scaleZ(1.5);
+      transform: translateZ(10px);
       box-shadow: 5px 5px $shadow-color;
       background-color: darken($random-button-color, 10%);
     }
@@ -145,15 +141,15 @@ a {
   display: -webkit-flex;
   flex-direction: column;
   -webkit-flex-direction: column;
+  -webkit-perspective: 700px;
+  -moz-perspective: 700px;
+  -ms-perspective: 700px;
+  perspective: 700px;
 }
 
 .my-list-item {
   @extend %main-shadow;
   background-color: $white;
-  -webkit-perspective: 300;
-  -moz-perspective: 300;
-  -ms-perspective: 300;
-  perspective: 300;
   padding: 10px;
   flex-grow: 1;
   transition: all .3s ease;
@@ -161,11 +157,16 @@ a {
     opacity: 0;
     transition: all .6s ease;
   }
+  a {
+    transform-style: preserve-3d;
+  }
   // -o-transition: all .5s;
   // -moz-transition: all .5s;
   // -webkit-transition: all .5s;
   &.cascaded:hover {
-    transform: translateX(-10px) scaleZ(1.5);
+    // transform: translateX(-10px) scaleZ(1.5);
+    transform: translate3d(0, 0, 10px);
+    box-shadow: 8px 16px 5px $shadow-color;
   }
   // -o-transition: transform .2s, box-shadow .2s, background-color .2s;
   // -moz-transition: transform .2s, box-shadow .2s, background-color .2s;

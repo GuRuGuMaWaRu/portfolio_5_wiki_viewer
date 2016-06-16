@@ -58,7 +58,8 @@ class Main extends React.Component {
                if (response[1].length !== 0) {
                  $('.my-list-item').animate({
                    marginTop: '15px'
-                 }, 500);
+                 }, 500, () => {
+                 });
                }
                this.setState({results: response, animated: true, textOpacity: 1});
              }

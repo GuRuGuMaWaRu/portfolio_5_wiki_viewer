@@ -13,7 +13,7 @@ const List = (props) => {
       if (invalidEntry1.test(props.results[2][i]) || invalidEntry2.test(props.results[2][i])) {
         continue;
       } else {
-        itemlist.push(<ListItem animated={props.animated} textOpacity={props.textOpacity}
+        itemlist.push(<ListItem zindex={100 + 10*i} animated={props.animated} textOpacity={props.textOpacity}
           key={i} title={props.results[1][i]} text={props.results[2][i]}
           href={props.results[3][i]} />);
       }
