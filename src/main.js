@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'whatwg-fetch';
 import './style.scss';
 
 import InputField from './components/input-field.js';
