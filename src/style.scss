@@ -67,7 +67,7 @@ a {
     input {
       background-color: $input-panel-color;
       border: none;
-      border-bottom: 1px solid $black;
+      // border-bottom: 1px solid $black;
       outline: none;
       width: 200px;
       font-size: 1.5rem;
@@ -77,16 +77,16 @@ a {
       -webkit-transition: border-bottom .2s, color .2s;
       &:focus, &:hover {
         color: darken($random-button-color, 10%);
-        border-bottom: 1px solid darken($random-button-color, 10%);
-        ~ .my-submit-button {
-          border-bottom: 1px solid darken($random-button-color, 10%);
+        // border-bottom: 1px solid darken($random-button-color, 10%);
+        ~ #my-bottom-border2 {
+          width: 61%;
         }
       }
     }
     .my-submit-button {
       background-color: $input-panel-color;
       border: none;
-      border-bottom: 1px solid $black;
+      // border-bottom: 1px solid $black;
       font-size: 1.5rem;
       outline: 0;
       transition: border-bottom .2s;
@@ -117,6 +117,23 @@ a {
       }
     }
   }
+  #my-bottom-border {
+    width: 61%;
+    height: 1px;
+    margin: 0 auto;
+    background-color: $black;
+  }
+  #my-bottom-border2 {
+    width: 0;
+    height: 1px;
+    margin: -1px auto 0;
+    background-color: darken($random-button-color, 10%);
+    transition: width .2s;
+    -o-transition: width .2s;
+    -moz-transition: width .2s;
+    -webkit-transition: width .2s;
+  }
+
   .my-random-button {
     background-color: $random-button-color;
     padding: 5px 10px;
