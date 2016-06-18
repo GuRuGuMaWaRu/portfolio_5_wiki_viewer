@@ -16,7 +16,7 @@ const List = (props) => {
         continue;
       } else {
         // add search results to the list to be displayed
-        itemlist.push(<ListItem zindex={100 + 10*i} animated={props.animated} textOpacity={props.textOpacity}
+        itemlist.push(<ListItem marginTop={props.marginTop} zindex={100 + 10*i} animated={props.animated} textOpacity={props.textOpacity}
           key={i} title={props.results[1][i]} text={props.results[2][i]}
           href={props.results[3][i]} />);
       }

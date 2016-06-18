@@ -1,10 +1,12 @@
 $black           : #000;
 $white           : #fff;
 
-$background-color   : #e2e2e2;
-$input-panel-color  : #84DCC6;
-$shadow-color       : grey;
-$random-button-color: #FFA69E;
+$text-color           : $black;
+$background-color     : #e2e2e2;
+$input-panel-color    : #CDDC39;
+$shadow-color         : grey;
+$active-element-color : #FF5252;
+$random-button-color  : #F0F4C3;
 
 %main-shadow {
   box-shadow: 10px 10px 0 $shadow-color;
@@ -50,6 +52,7 @@ a {
 .my-input-panel {
   @extend %main-shadow;
   background-color: $input-panel-color;
+  color: $text-color;
   text-align: center;
   -webkit-perspective: 700px;
   -moz-perspective: 700px;
@@ -67,7 +70,6 @@ a {
     input {
       background-color: $input-panel-color;
       border: none;
-      // border-bottom: 1px solid $black;
       outline: none;
       width: 200px;
       font-size: 1.5rem;
@@ -76,8 +78,7 @@ a {
       -moz-transition: border-bottom .2s, color .2s;
       -webkit-transition: border-bottom .2s, color .2s;
       &:focus, &:hover {
-        color: darken($random-button-color, 10%);
-        // border-bottom: 1px solid darken($random-button-color, 10%);
+        color: darken($active-element-color, 15%);
         ~ #my-bottom-border2 {
           width: 61%;
         }
@@ -86,7 +87,6 @@ a {
     .my-submit-button {
       background-color: $input-panel-color;
       border: none;
-      // border-bottom: 1px solid $black;
       font-size: 1.5rem;
       outline: 0;
       transition: border-bottom .2s;
@@ -95,7 +95,6 @@ a {
       -webkit-transition: border-bottom .2s;
       &:hover {
        .glyphicon-flipped {
-          color: darken($random-button-color, 10%);
           transform: scaleX(1);
           -moz-transform: scaleX(1);
           -webkit-transform: scaleX(1);
@@ -110,6 +109,7 @@ a {
         -webkit-transition: transform .2s, color .2s;
       }
       .glyphicon-flipped {
+        color: darken($active-element-color, 15%);
         transform: scaleX(-1);
         -moz-transform: scaleX(-1);
         -webkit-transform: scaleX(-1);
@@ -127,7 +127,7 @@ a {
     width: 0;
     height: 1px;
     margin: -1px auto 0;
-    background-color: darken($random-button-color, 10%);
+    background-color: darken($active-element-color, 15%);
     transition: width .2s;
     -o-transition: width .2s;
     -moz-transition: width .2s;
@@ -176,10 +176,10 @@ a {
   background-color: $white;
   padding: 10px;
   flex-grow: 1;
-  transition: transform .2s ease, box-shadow .2s ease;
-  -o-transition: transform .2s ease, box-shadow .2s ease;
-  -moz-transition: transform .2s ease, box-shadow .2s ease;
-  -webkit-transition: transform .2s ease, box-shadow .2s ease;
+  transition: transform .2s ease, box-shadow .2s ease, margin-top .2s;
+  -o-transition: transform .2s ease, box-shadow .2s ease, margin-top .2s;
+  -moz-transition: transform .2s ease, box-shadow .2s ease, margin-top .2s;
+  -webkit-transition: transform .2s ease, box-shadow .2s ease, margin-top .2s;
   .my-search-result {
     opacity: 0;
     transition: opacity .6s ease;

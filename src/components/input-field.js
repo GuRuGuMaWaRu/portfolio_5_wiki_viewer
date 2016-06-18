@@ -20,7 +20,7 @@ const InputField = (props) => {
         <div id="my-bottom-border"></div>
         <div id="my-bottom-border2"></div>
       </form>
-      <button className="my-random-button"><a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">Go Random!</a></button>
+      <button className="my-random-button"><a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" label="Random Article">Go Random!</a></button>
     </div>
   );
 }
